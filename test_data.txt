@@ -1,0 +1,28 @@
+1030516729
+Enes Sadik
+Ozbek
+Computer Engineering
+1
+0
+y
+1030516231
+Ahmet
+Kaya
+Computer Engineering
+1
+1
+y
+1030512314
+Batuhan
+Demir
+Electrical Engineering
+1
+1
+y
+1030512432
+Mustafa
+Deger
+Electrical Engineering
+1
+1
+n
