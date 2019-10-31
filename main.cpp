@@ -33,7 +33,7 @@ student get_student()
 	get_dsa_count:
 	cout << "How often did this student take Data Structures and Algorithms?";
 	cin >> dsa_count;
-	if (dbms_count < 0)
+	if (dsa_count < 0)
 	{
 		goto get_dsa_count;
 	}
