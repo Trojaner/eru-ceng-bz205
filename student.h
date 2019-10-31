@@ -5,37 +5,55 @@
 
 using namespace std;
 
-struct student
+class student
 {
-	student(long student_id, string student_name, string student_surname, string student_course)
+public:
+	student(
+		const long student_id,
+		const string& student_name,
+		const string& student_surname,
+		const string& student_department,
+		const int student_dbms_count,
+		const int student_dsa_count)
 	{
 		id = student_id;
-		name = std::move(student_name);
-		surname = std::move(student_surname);
-		course = std::move(student_course);
+		name = student_name;
+		surname = student_surname;
+		department = student_department;
+		dbms_count = student_dbms_count;
+		dsa_count = student_dsa_count;
 	}
 
 	student()
 	{
 		id = 0;
-		name = nullptr;
-		surname = nullptr;
-		course = nullptr;
+		name = "";
+		surname = "";
+		department = "";
+		dbms_count = 0;
+		dsa_count = 0;
 	}
 
 	long id;
 	string name;
 	string surname;
-	string course;
+	string department;
+	int dbms_count;
+	int dsa_count;
+
+	friend bool operator!=(student const& lhs, student const& rhs) { return lhs.id != rhs.id; }
+	friend bool operator==(student const& lhs, student const& rhs) { return lhs.id == rhs.id; }
 };
 
 inline std::ostream& operator << (std::ostream& stream, const student& student) {
-	return stream << "[" << student.id << "] " << student.name << " " << student.surname << " (" << student.course << ")";
+	return stream << "[" << student.id << "] " << student.name << " " << student.surname << " (" << student.department << ")";
 }
 
 class student_stack : public stack<student>
 {
 public:
-	virtual student find_by_id(long student_id);
+	virtual student* find_by_id(long student_id);
 	virtual int remove_by_id(long student_id);
 };
+
+#include "student.ipp"

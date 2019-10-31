@@ -2,6 +2,6 @@
 
 project(BZ205_Odev)
 set(CMAKE_CXX_STANDARD 17)
-file(GLOB PROJECT_SOURCES "*.cpp")
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
-add_executable (BZ205_Odev ${PROJECT_SOURCES})
+add_executable (BZ205_Odev "main.cpp")

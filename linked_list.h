@@ -17,3 +17,5 @@ public:
 protected:
 	node<T>* head_;
 };
+
+#include "linked_list.ipp"

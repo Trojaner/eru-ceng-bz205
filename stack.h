@@ -9,3 +9,5 @@ public:
 	virtual void push(T& value);
 	virtual T pop();
 };
+
+#include "stack.ipp"

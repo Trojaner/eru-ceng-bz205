@@ -1,5 +1,6 @@
-﻿#include "linked_list.h"
+﻿#pragma once
 #include <iostream>
+#include "linked_list.h"
 
 using namespace std;
 
@@ -70,7 +71,7 @@ node<T>* linked_list<T>::insert(int index, T& value)
 		return nullptr;
 	}
 
-	node<T>* newnode = new node<T>();
+	auto newnode = new node<T>();
 	newnode->data = value;
 
 	if (index == 0)
@@ -108,7 +109,7 @@ int linked_list<T>::remove(T& value)
 			prevnode->next = currnode->next;
 			delete currnode;
 		}
-		else 
+		else
 		{
 			head_ = currnode->next;
 			delete currnode;
@@ -124,7 +125,7 @@ void linked_list<T>::print()
 {
 	int num = 0;
 	node<T>* currnode = head_;
-	while (currnode != nullptr) 
+	while (currnode != nullptr)
 	{
 		cout << currnode->data << endl;
 		currnode = currnode->next;
