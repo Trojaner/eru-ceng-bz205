@@ -2,7 +2,7 @@
 #include "student.h"
 #include <xlocmon>
 
-inline student* student_stack::find_by_id(const long student_id)
+inline student* student_stack::find_by_id(const long student_id) noexcept
 {
 	node<student>* currnode = head_;
 	int currIndex = 1;
@@ -21,7 +21,7 @@ inline student* student_stack::find_by_id(const long student_id)
 	return nullptr;
 }
 
-inline int student_stack::remove_by_id(long student_id)
+inline int student_stack::remove_by_id(long student_id) noexcept
 {
 	return 0;
 }

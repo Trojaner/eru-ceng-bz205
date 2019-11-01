@@ -5,13 +5,13 @@
 using namespace std;
 
 template <typename T>
-linked_list<T>::linked_list()
+linked_list<T>::linked_list() noexcept
 {
 	head_ = nullptr;
 }
 
 template <typename T>
-linked_list<T>::~linked_list()
+linked_list<T>::~linked_list() noexcept
 {
 	node<T>* currnode = head_;
 
@@ -24,13 +24,13 @@ linked_list<T>::~linked_list()
 }
 
 template <typename T>
-bool linked_list<T>::is_empty()
+bool linked_list<T>::is_empty() noexcept
 {
 	return head_ == nullptr;
 }
 
 template <typename T>
-int linked_list<T>::find(T& value)
+int linked_list<T>::find(T& value) noexcept
 {
 	node<T>* currnode = head_;
 	int currIndex = 1;
@@ -50,7 +50,7 @@ int linked_list<T>::find(T& value)
 }
 
 template <typename T>
-node<T>* linked_list<T>::insert(int index, T& value)
+node<T>* linked_list<T>::insert(int index, T& value) noexcept
 {
 	if (index < 0)
 	{
@@ -89,7 +89,7 @@ node<T>* linked_list<T>::insert(int index, T& value)
 }
 
 template <typename T>
-int linked_list<T>::remove(T& value)
+int linked_list<T>::remove(T& value) noexcept
 {
 	node<T>* prevnode = nullptr;
 	node<T>* currnode = head_;
@@ -121,7 +121,7 @@ int linked_list<T>::remove(T& value)
 }
 
 template <typename T>
-void linked_list<T>::print()
+void linked_list<T>::print() noexcept
 {
 	int num = 0;
 	node<T>* currnode = head_;

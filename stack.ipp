@@ -14,7 +14,7 @@ T stack<T>::peek()
 }
 
 template <typename T>
-void stack<T>::push(T& value)
+void stack<T>::push(T& value) noexcept
 {
 	linked_list<T>::insert(0, value);
 }

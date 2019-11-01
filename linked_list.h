@@ -5,14 +5,14 @@ template<typename T>
 class linked_list
 {
 public:
-	linked_list();
-	virtual ~linked_list();
+	linked_list() noexcept;
+	virtual ~linked_list() noexcept;
 
-	virtual bool is_empty();
-	virtual node<T>* insert(int index, T& value);
-	virtual int find(T& value);
-	virtual int remove(T& value);
-	virtual void print();
+	virtual bool is_empty() noexcept;
+	virtual node<T>* insert(int index, T& value) noexcept;
+	virtual int find(T& value) noexcept;
+	virtual int remove(T& value) noexcept;
+	virtual void print() noexcept;
 
 protected:
 	node<T>* head_;

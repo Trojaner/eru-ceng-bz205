@@ -52,8 +52,8 @@ inline std::ostream& operator << (std::ostream& stream, const student& student) 
 class student_stack : public stack<student>
 {
 public:
-	virtual student* find_by_id(long student_id);
-	virtual int remove_by_id(long student_id);
+	virtual student* find_by_id(long student_id) noexcept;
+	virtual int remove_by_id(long student_id) noexcept;
 };
 
 #include "student.ipp"
