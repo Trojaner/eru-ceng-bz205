@@ -5,9 +5,11 @@ template<typename T>
 class stack : public linked_list<T>
 {
 public:
-	virtual T peek();
+	T peek();
 	virtual void push(T& value) noexcept;
-	virtual T pop();
+	T pop();
+
+	void for_each(typename linked_list<T>::for_each_callback callback) override;
 };
 
 #include "stack.ipp"

@@ -1,7 +1,9 @@
 #include "main.h"
 #include "student.h"
+#include "student_stack.h"
+#include <fstream>
 
-student get_student()
+student get_student(istream& stream)
 {
 	long id;
 	string name;
@@ -11,20 +13,20 @@ student get_student()
 	int dsa_count;
 
 	cout << "Student ID: ";
-	cin >> id;
-
+	stream >> id;
+	std::getline(stream, name);
 	cout << "Student Name: ";
-	cin >> name;
+	std::getline(stream, name);
 
 	cout << "Student Surname: ";
-	cin >> surname;
+	std::getline(stream, surname);
 
 	cout << "Student Department: ";
-	cin >> department;
+	std::getline(stream, department);
 
 	get_dbms_count:
 	cout << "How often did this student take Database Management Systems?";
-	cin >> dbms_count;
+	stream >> dbms_count;
 	if(dbms_count < 0)
 	{
 		goto get_dbms_count;
@@ -32,7 +34,7 @@ student get_student()
 
 	get_dsa_count:
 	cout << "How often did this student take Data Structures and Algorithms?";
-	cin >> dsa_count;
+	stream >> dsa_count;
 	if (dsa_count < 0)
 	{
 		goto get_dsa_count;
@@ -45,7 +47,7 @@ bool ask_add_another()
 {
 	cout << "Add another? [Y/N] ";
 	char a;
-	cin >> a;
+	cin.get(a);
 
 	if (a == 'Y' || a == 'y')
 	{
@@ -60,17 +62,11 @@ bool ask_add_another()
 	return ask_add_another();
 }
 
-void get_students(student_stack* stack)
+void get_students(student_stack* stack, istream& stream)
 {
 	while (true)
 	{
-		student student = get_student();
-		if(stack->find_by_id(student.id))
-		{
-			cout << "A student with this ID has been already added!" << endl;
-			continue;
-		}
-
+		student student = get_student(stream);
 		stack->push(student);
 
 		if(!ask_add_another())
@@ -112,10 +108,10 @@ void process_option()
 	}
 }
 
-int main()
+int main(int argc, char* argv[])
 {
 	student_stack stack;
-	get_students(&stack);
+	get_students(&stack, cin);
 
 	process_option();
 

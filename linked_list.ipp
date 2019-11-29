@@ -8,6 +8,7 @@ template <typename T>
 linked_list<T>::linked_list() noexcept
 {
 	head_ = nullptr;
+	size_ = 0;
 }
 
 template <typename T>
@@ -84,7 +85,8 @@ node<T>* linked_list<T>::insert(int index, T& value) noexcept
 		newnode->next = currnode->next;
 		currnode->next = newnode;
 	}
-
+	
+	size_++;
 	return newnode;
 }
 
@@ -114,6 +116,8 @@ int linked_list<T>::remove(T& value) noexcept
 			head_ = currnode->next;
 			delete currnode;
 		}
+
+		size_--;
 		return currIndex;
 	}
 
@@ -123,14 +127,27 @@ int linked_list<T>::remove(T& value) noexcept
 template <typename T>
 void linked_list<T>::print() noexcept
 {
-	int num = 0;
+	for_each([](T& currnode)
+	{
+		cout << currnode << endl;
+	});
+	
+	cout << "Number of nodes in the list: " << size() << endl;
+}
+
+template <typename T>
+void linked_list<T>::for_each(for_each_callback callback)
+{
 	node<T>* currnode = head_;
 	while (currnode != nullptr)
 	{
-		cout << currnode->data << endl;
+		callback(currnode->data);
 		currnode = currnode->next;
-		num++;
 	}
+}
 
-	cout << "Number of nodes in the list: " << num << endl;
+template <typename T>
+int linked_list<T>::size() const noexcept
+{
+	return size_;
 }

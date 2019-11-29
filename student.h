@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <ostream>
-#include "stack.h"
 
 using namespace std;
 
@@ -48,12 +47,3 @@ public:
 inline std::ostream& operator << (std::ostream& stream, const student& student) {
 	return stream << "[" << student.id << "] " << student.name << " " << student.surname << " (" << student.department << ")";
 }
-
-class student_stack : public stack<student>
-{
-public:
-	virtual student* find_by_id(long student_id) noexcept;
-	virtual int remove_by_id(long student_id) noexcept;
-};
-
-#include "student.ipp"
