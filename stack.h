@@ -2,14 +2,22 @@
 #include "linked_list.h"
 
 template<typename T>
-class stack : public linked_list<T>
+class stack
 {
 public:
-	T peek();
-	virtual void push(T& value) noexcept;
-	T pop();
+	stack() noexcept;
+	virtual ~stack() noexcept;
 
-	void for_each(typename linked_list<T>::for_each_callback callback) override;
+	bool is_empty() noexcept;
+	T peek();
+	T pop();
+	virtual void push(T& value);
+	int size() noexcept;
+	virtual void print() noexcept;
+
+	void for_each(typename linked_list<T>::for_each_callback callback);
+protected:
+	linked_list<T>* internal_list_;
 };
 
 #include "stack.ipp"

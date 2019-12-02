@@ -11,10 +11,10 @@ template <typename T>
 void sorted_stack<T>::sort()
 {
 	// O(n^2)
-	// Stack bazlý insertion sort
+	// Stack bazli insertion sort
 
 	stack<T> tmp_stack;
-	for(int i = 0; i < sorted_stack<T>::size(); i++)
+	for(int i = 0; i < stack<T>::internal_list_->size(); i++)
 	{
 		T tmp = sorted_stack<T>::pop();
 		while (!tmp_stack.is_empty() && compare(tmp_stack.peek(), tmp) < 0) {

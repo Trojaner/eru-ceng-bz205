@@ -19,6 +19,8 @@ public:
 
 	virtual void for_each(for_each_callback callback);
 protected:
+	template<typename K>
+	friend class stack;
 	node<T>* head_;
 	int size_;
 };
