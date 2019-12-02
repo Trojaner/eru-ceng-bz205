@@ -2,6 +2,11 @@
 #include "student.h"
 #include "student_stack.h"
 #include <fstream>
+#include "avl_tree.h"
+#include "student_avl_tree.h"
+
+student_avl_tree* dbms_tree = new student_avl_tree();
+student_stack* dsa_stack = new student_stack();
 
 student get_student(istream& stream)
 {
@@ -11,7 +16,7 @@ student get_student(istream& stream)
 	string department;
 	int dbms_count;
 	int dsa_count;
-
+	
 	cout << "Student ID: ";
 	stream >> id;
 	std::getline(stream, name);
@@ -62,12 +67,20 @@ bool ask_add_another()
 	return ask_add_another();
 }
 
-void get_students(student_stack* stack, istream& stream)
+void get_students(istream& stream)
 {
 	while (true)
 	{
 		student student = get_student(stream);
-		stack->push(student);
+		if(student.dbms_count > 0)
+		{
+			dbms_tree->insert(student);
+		}
+
+		if(student.dsa_count > 0)
+		{
+			dsa_stack->push(student);
+		}
 
 		if(!ask_add_another())
 		{
@@ -110,11 +123,13 @@ void process_option()
 
 int main(int argc, char* argv[])
 {
-	student_stack stack;
-	get_students(&stack, cin);
-
+	get_students(cin);
 	process_option();
 
-	stack.print();
+	cout << "Data Structures and Algorithms stack students: " << endl;
+	dsa_stack->print();
+
+	cout << "Database Management Systems avl tree students: " << endl;
+	dbms_tree->print_inorder();
 	return 0;
 }

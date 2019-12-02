@@ -6,7 +6,7 @@ class sorted_stack : public stack<T>
 {
 public:
 	virtual int compare(T a, T b) = 0;
-	void push(T& value) noexcept override;
+	void push(T& value) override;
 private:
 	void sort();
 };

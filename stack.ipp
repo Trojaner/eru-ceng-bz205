@@ -20,7 +20,6 @@ int stack<T>::size() noexcept
 	return internal_list_->size();
 }
 
-
 template <typename T>
 void stack<T>::print() noexcept
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 template <typename T>
-void sorted_stack<T>::push(T& value) noexcept
+void sorted_stack<T>::push(T& value)
 {
 	stack<T>::push(value);
 	sort();
