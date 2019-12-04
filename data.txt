@@ -1,0 +1,84 @@
+1030516729
+Enes Sadik
+Ozbek
+Computer Engineering
+1
+0
+1030516231
+Ahmet
+Kaya
+Computer Engineering
+1
+1
+1030512314
+Batuhan
+Demir
+Electrical Engineering
+1
+1
+1030512432
+Mustafa
+Deger
+Electrical Engineering
+1
+1
+1030510103
+Sadulah
+Erkilic
+Computer Engineering
+2
+2	 	 	 	 	 	 	 	 	 	 	 	 
+1030510104	
+Ali
+Korkmaz
+Computer Engineering
+2
+0
+1030510188	
+Ahmet 
+Kutucu 
+Computer Engineering
+0
+6
+1030526799	
+Ayse
+Yasar
+Computer Engineering
+3
+1
+1030526391	
+Mehmet
+Dilek
+Electrical Engineering
+0
+1
+1030576390	
+Mehmet
+Ayla
+Biomedical Engineering
+2
+1
+1030521234	
+Ugur
+Dumen
+Electrical Engineering
+2
+0
+1030539113	
+Ozan
+Ozcan
+Biomedical Engineering
+3
+3
+1030515690	
+Erman
+Turkoglu
+Computer Engineering
+0
+3
+1030530838	
+Eren
+Ozcan
+Electrical Engineering
+0
+3

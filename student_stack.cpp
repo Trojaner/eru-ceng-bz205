@@ -1,8 +1,7 @@
-#pragma once
 #include "student.h"
 #include "student_stack.h"
 
-inline int student_stack::compare(student left, student right)
+int student_stack::compare(const student& left, const student& right)
 {
 	if(left.id > right.id)
 	{

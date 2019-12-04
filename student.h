@@ -45,5 +45,5 @@ public:
 };
 
 inline std::ostream& operator << (std::ostream& stream, const student& student) {
-	return stream << "[" << student.id << "] " << student.name << " " << student.surname << " (" << student.department << ")";
+	return stream << "[" << student.id << "] " << student.name << " " << student.surname << " (" << student.department << ", DSA: " << student.dsa_count << "x, DBMS: " << student.dbms_count << "x)";
 }

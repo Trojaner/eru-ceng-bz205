@@ -5,7 +5,5 @@
 class student_avl_tree : public avl_tree<student>
 {
 public:
-	int compare(student a, student b) override;
+	int compare(const student& left, const student& right) noexcept override final;
 };
-
-#include "student_avl_tree.ipp"

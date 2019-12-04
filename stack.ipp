@@ -38,7 +38,7 @@ T stack<T>::peek()
 }
 
 template <typename T>
-void stack<T>::push(T& value)
+void stack<T>::push(const T& value)
 {
 	internal_list_->insert(0, value);
 }
@@ -57,24 +57,26 @@ T stack<T>::pop()
 		throw std::exception("The stack is empty.");
 	}
 
-	T val = internal_list_->head_->data;
+	T* ptr= internal_list_->get(0);
+	T val = *ptr;
 	internal_list_->remove(val);
 	return val;
 }
 
 template <typename T>
-void stack<T>::for_each(typename linked_list<T>::for_each_callback callback)
+void stack<T>::for_each(std::function<void(T)> callback) noexcept
 {
 	stack<T> tmp;
 
-	for (int i = 0; i < internal_list_->size(); i++)
+	const auto size = internal_list_->size();
+	for (int i = 0; i < size; i++)
 	{
 		T current = pop();
 		tmp.push(current);
 		callback(current);
 	}
 
-	for (int i = 0; i < internal_list_->size(); i++)
+	for (int i = 0; i < size; i++)
 	{
 		T current = tmp.pop();
 		push(current);

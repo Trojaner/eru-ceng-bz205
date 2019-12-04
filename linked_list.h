@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <functional>
 
 template<typename T>
 class node
@@ -17,18 +18,21 @@ template<typename T>
 class linked_list
 {
 public:
-	typedef void (*for_each_callback)(T& item);
-
 	linked_list() noexcept;
 	~linked_list() noexcept;
 
 	bool is_empty() noexcept;
-	node<T>* insert(int index, T& value) noexcept;
-	int find(T& value) noexcept;
-	int remove(T& value) noexcept;
+	node<T>* insert(int index, const T& value) noexcept;
+	int find(const T& value) noexcept;
+	int remove(const T& value) noexcept;
+	void remove_at(int idx) noexcept;
 	int size() const noexcept;
 	void print() noexcept;
-	void for_each(for_each_callback callback);
+	void for_each(function<void(T)> callback) noexcept;
+	void clear() noexcept;
+	void shuffle() noexcept;
+	T* get(int idx) noexcept;
+
 protected:
 	template<typename K>
 	friend class stack;

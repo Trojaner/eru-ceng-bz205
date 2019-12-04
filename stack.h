@@ -12,9 +12,9 @@ public:
 	T pop();
 	int size() noexcept;
 	void print() noexcept;
-	void for_each(typename linked_list<T>::for_each_callback callback);
+	void for_each(std::function<void(T)> callback) noexcept;
 
-	virtual void push(T& value);
+	virtual void push(const T& value);
 	virtual ~stack() noexcept;
 protected:
 	linked_list<T>* internal_list_;
